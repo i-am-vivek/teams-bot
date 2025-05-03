@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.14/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.14",
+  "version": "1.0.0",
+  "id": "YOUR-BOT-ID",
+  "packageName": "com.digitalocean.teams.ai",
+  "developer": {
+    "name": "Your Company",
+    "websiteUrl": "https://www.yourcompany.com",
+    "privacyUrl": "https://www.yourcompany.com/privacy",
+    "termsOfUseUrl": "https://www.yourcompany.com/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "DO AI Assistant",
+    "full": "DigitalOcean AI Assistant"
+  },
+  "description": {
+    "short": "AI assistant powered by DigitalOcean",
+    "full": "This bot uses DigitalOcean's generative AI to answer questions and provide assistance."
+  },
+  "accentColor": "#0069FF",
+  "bots": [
+    {
+      "botId": "YOUR-BOT-ID",
+      "scopes": ["personal", "team", "groupchat"],
+      "supportsFiles": false,
+      "isNotificationOnly": false
+    }
+  ],
+  "permissions": ["identity", "messageTeamMembers"],
+  "validDomains": ["*.botframework.com", "YOUR-DOMAIN.com"]
+}

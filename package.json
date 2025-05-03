@@ -1,0 +1,20 @@
+{
+  "name": "teams-digitalocean-ai-bot",
+  "version": "1.0.0",
+  "description": "Microsoft Teams bot integrated with DigitalOcean's generative AI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "botbuilder": "^4.20.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "restify": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
