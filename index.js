@@ -42,7 +42,7 @@ const conversationState = new ConversationState(memoryStorage);
 // Create the bot instance
 const bot = new DoAiBot(conversationState);
 
-server.post("/api/messages", (req, res, next) => {
+server.get("/api/messages", (req, res, next) => {
   res.json({ status: "success" });
 });
 // Listen for incoming messages
