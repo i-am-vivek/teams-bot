@@ -21,7 +21,7 @@ class DoAiBot extends ActivityHandler {
     this.onMessage(async (context, next) => {
       // console.log(context);
       const userInput = context.activity.text;
-      console.log(`User input: ${userInput}`);
+      console.log(`User input: ${userInput} `);
       // Handle help command
       if (userInput.toLowerCase() === "help") {
         await context.sendActivity(
