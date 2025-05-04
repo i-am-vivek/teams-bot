@@ -25,7 +25,7 @@ class DoAiBot extends ActivityHandler {
       // Handle help command
       if (userInput.toLowerCase() === "help") {
         await context.sendActivity(
-          "Type any question or prompt, and I will use DigitalOcean's AI to generate a response!"
+          "Type any question or prompt, and I will use DigitalOcean's AI to generate a response!",
         );
       } else {
         try {
@@ -35,7 +35,7 @@ class DoAiBot extends ActivityHandler {
           // Call DigitalOcean AI service
           const aiResponse = await this.generateAIResponse(
             userInput,
-            context.activity
+            context.activity,
           );
 
           // Send response back to Teams
@@ -43,7 +43,7 @@ class DoAiBot extends ActivityHandler {
         } catch (error) {
           console.log(error);
           await context.sendActivity(
-            `Sorry, I encountered an error processing your request. ${error.message}`
+            `Sorry, I encountered an error processing your request. ${error.message}`,
           );
           // console.error(error);
         }
@@ -59,7 +59,7 @@ class DoAiBot extends ActivityHandler {
       for (const member of membersAdded) {
         if (member.id !== context.activity.recipient.id) {
           await context.sendActivity(
-            'Hello! I am a bot that can generate responses using DigitalOcean\'s AI. Type something to get started, or type "help" for more information.'
+            'Hello! I am a bot that can generate responses using DigitalOcean\'s AI. Type something to get started, or type "help" for more information.',
           );
         }
       }
@@ -94,7 +94,14 @@ class DoAiBot extends ActivityHandler {
       if (response.data) {
         let message = response.data.choices[0].message.content.trim();
         // remove <think></think> message is multiple lines
-        message = message.split("</think>")[1] || message.split("</think>")[0];
+        message = (
+          message.split("</think>")[1] ||
+          message.split("</think>")[0] ||
+          ""
+        )
+          .replace(/\\n/g, "\n")
+          .trim();
+        console.log(message);
         return message;
       } else {
         return "I couldn't generate a response. Please try again.";
