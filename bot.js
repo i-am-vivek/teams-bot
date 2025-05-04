@@ -37,7 +37,7 @@ class DoAiBot extends ActivityHandler {
             userInput,
             context.activity,
           );
-
+          console.log({ aiResponse });
           // Send response back to Teams
           await context.sendActivity(aiResponse);
         } catch (error) {
@@ -99,7 +99,6 @@ class DoAiBot extends ActivityHandler {
           message.split("</think>")[0] ||
           ""
         ).trim();
-        console.log(message);
         return message;
       } else {
         return "I couldn't generate a response. Please try again.";
