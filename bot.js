@@ -21,11 +21,11 @@ class DoAiBot extends ActivityHandler {
     this.onMessage(async (context, next) => {
       // console.log(context);
       const userInput = context.activity.text;
-      // console.log(`User input: ${userInput}`);
+      console.log(`User input: ${userInput}`);
       // Handle help command
       if (userInput.toLowerCase() === "help") {
         await context.sendActivity(
-          "Type any question or prompt, and I will use DigitalOcean's AI to generate a response!",
+          "Type any question or prompt, and I will use DigitalOcean's AI to generate a response!"
         );
       } else {
         try {
@@ -35,14 +35,15 @@ class DoAiBot extends ActivityHandler {
           // Call DigitalOcean AI service
           const aiResponse = await this.generateAIResponse(
             userInput,
-            context.activity,
+            context.activity
           );
 
           // Send response back to Teams
           await context.sendActivity(aiResponse);
         } catch (error) {
+          console.log(error);
           await context.sendActivity(
-            `Sorry, I encountered an error processing your request. ${error.message}`,
+            `Sorry, I encountered an error processing your request. ${error.message}`
           );
           // console.error(error);
         }
@@ -58,7 +59,7 @@ class DoAiBot extends ActivityHandler {
       for (const member of membersAdded) {
         if (member.id !== context.activity.recipient.id) {
           await context.sendActivity(
-            'Hello! I am a bot that can generate responses using DigitalOcean\'s AI. Type something to get started, or type "help" for more information.',
+            'Hello! I am a bot that can generate responses using DigitalOcean\'s AI. Type something to get started, or type "help" for more information.'
           );
         }
       }

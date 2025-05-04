@@ -2,13 +2,13 @@
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.14/MicrosoftTeams.schema.json",
   "manifestVersion": "1.14",
   "version": "1.0.0",
-  "id": "YOUR-BOT-ID",
+  "id": "d17aa185-888e-465a-97d2-61e1638c7b2f",
   "packageName": "com.digitalocean.teams.ai",
   "developer": {
-    "name": "Your Company",
-    "websiteUrl": "https://www.yourcompany.com",
-    "privacyUrl": "https://www.yourcompany.com/privacy",
-    "termsOfUseUrl": "https://www.yourcompany.com/terms"
+    "name": "vivek",
+    "websiteUrl": "https://www.digitalocean.com",
+    "privacyUrl": "https://www.digitalocean.com/legal/privacy",
+    "termsOfUseUrl": "https://www.digitalocean.com/legal/terms"
   },
   "icons": {
     "color": "color.png",
@@ -25,12 +25,15 @@
   "accentColor": "#0069FF",
   "bots": [
     {
-      "botId": "YOUR-BOT-ID",
+      "botId": "d17aa185-888e-465a-97d2-61e1638c7b2f",
       "scopes": ["personal", "team", "groupchat"],
       "supportsFiles": false,
       "isNotificationOnly": false
     }
   ],
   "permissions": ["identity", "messageTeamMembers"],
-  "validDomains": ["*.botframework.com", "YOUR-DOMAIN.com"]
+  "validDomains": [
+    "*.botframework.com",
+    "faq-teams-b2brd9f0c8dcdagq.canadacentral-01.azurewebsites.net"
+  ]
 }
