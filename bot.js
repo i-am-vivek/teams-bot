@@ -98,9 +98,7 @@ class DoAiBot extends ActivityHandler {
           message.split("</think>")[1] ||
           message.split("</think>")[0] ||
           ""
-        )
-          .replace(/\\n/g, "\n")
-          .trim();
+        ).trim();
         console.log(message);
         return message;
       } else {

@@ -8,6 +8,7 @@ const {
   MemoryStorage,
 } = require("botbuilder");
 const { DoAiBot } = require("./bot");
+const facebookSanitizerMiddleware = require("./facebookSanitizerMiddleware");
 
 // Import configuration settings
 dotenv.config();
@@ -28,6 +29,8 @@ const adapter = new BotFrameworkAdapter({
   appId: process.env.MicrosoftAppId,
   appPassword: process.env.MicrosoftAppPassword,
 });
+
+adapter.use(facebookSanitizerMiddleware);
 
 // Add error handling
 adapter.onTurnError = async (context, error) => {
