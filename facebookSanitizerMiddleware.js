@@ -22,7 +22,7 @@ function sanitizeForFacebook(text) {
 
 const facebookSanitizerMiddleware = {
   async onTurn(context, next) {
-    console.log(context.activity);
+    console.log("channelId:", context.activity.channelId);
     if (
       (context.activity.channelId === "facebook" ||
         context.activity.channelId === "emulator") &&
