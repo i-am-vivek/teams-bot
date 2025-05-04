@@ -42,7 +42,7 @@ class DoAiBot extends ActivityHandler {
           await context.sendActivity(aiResponse);
         } catch (error) {
           await context.sendActivity(
-            "Sorry, I encountered an error processing your request.",
+            `Sorry, I encountered an error processing your request. ${error.message}`,
           );
           // console.error(error);
         }
@@ -91,7 +91,10 @@ class DoAiBot extends ActivityHandler {
       // console.log(response.data.choices[0].message.content);
       // Extract and return the AI-generated text
       if (response.data) {
-        return response.data.choices[0].message.content.trim();
+        let message = response.data.choices[0].message.content.trim();
+        // remove <think></think> message is multiple lines
+        message = message.split("</think>")[1] || message.split("</think>")[0];
+        return message;
       } else {
         return "I couldn't generate a response. Please try again.";
       }
